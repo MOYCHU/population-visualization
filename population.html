@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Population Growth</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body { max-width: 900px; margin: 40px auto; font-family: Arial, sans-serif; }
+  canvas { background: #f9f9f9; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<h2>Population Growth (Melbourne City)</h2>
+<canvas id="populationChart" width="800" height="400"></canvas>
+
+<script>
+  // ======== 在这里填数据 ========
+  const years = ["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015",
+                "2016","2017","2018","2019","2020","2021"];
+  const populations = ["55399","60592","66149","71532","76197","80154","85141","89792","94330","97578","100228","107573",
+                    "118707","127975","136873","146099","155992","163449","169106","170785","153655"];
+  // ============================
+
+  new Chart(document.getElementById('populationChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Population',
+        data: populations,
+        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 4,
+        pointHoverRadius: 7
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: { title: { display: true, text: 'Year' } },
+        y: { title: { display: true, text: 'Population' } }
+      }
+    }
+  });
+</script>
+</body>
+</html>
